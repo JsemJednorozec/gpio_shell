@@ -17,11 +17,10 @@ at_exit do
 	WiringOP.reset
 end
 
-pins = []
-
 # command parser
 class Parser
     def initialize
+			@pins = []
     end
 
     def parse string
@@ -38,27 +37,27 @@ class Parser
         when "out"
             pin_no = params[0].to_i
             begin
-                pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :out
+                @pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :out
             rescue
                 puts "error"
             end
         when "in"
             pin_no = params[0].to_i
             begin
-                pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :in
+                @pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :in
             rescue
                 puts "error"
             end
         when "hi"
             pin_no = params[0].to_i
-            pins[pin_no].set_hi
+            @pins[pin_no].set_hi
         when "lo"
             pin_no = params[0].to_i
-            pins[pin_no].set_lo
+            @pins[pin_no].set_lo
         when "reset"
             WiringOP.reset
-	when "quit"
-		exit
+				when "quit"
+					exit
         else
             puts "bad command"
         end
