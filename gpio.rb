@@ -9,7 +9,12 @@ in <pin>    set the pin as an input pin
 hi <pin>    set the pin to high
 lo <pin>    set the pin to low
 reset       reset all the pins
+quit        quit the script and reset all the pins
 EOF
+end
+
+at_exit do
+	WiringOP.reset
 end
 
 pins = []
@@ -52,6 +57,8 @@ class Parser
             pins[pin_no].set_lo
         when "reset"
             WiringOP.reset
+	when "quit"
+		exit
         else
             puts "bad command"
         end
