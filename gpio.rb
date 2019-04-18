@@ -33,14 +33,14 @@ class Parser
         when "out"
             pin_no = params[0].to_i
             begin
-                pin[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :out
+                pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :out
             rescue
                 puts "error"
             end
         when "in"
             pin_no = params[0].to_i
             begin
-                pin[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :in
+                pins[pin_no] = WiringOP::Pin.new :pin => pin_no, :direction => :in
             rescue
                 puts "error"
             end
