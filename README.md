@@ -13,8 +13,9 @@ cd ..
 ```
 You'll also need Ruby, which you can get from your favorite package manager.
 
-Then just clone this repo
+Then just clone this repo and run the main file:
 
 ```bash
-git clone --recursive https://github.com/JsemJednorozec/gpio_shell.git
+git clone --recursive https://github.com/j-jzk/gpio_shell.git
+ruby gpio.rb
 ```
